@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "https://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="personagemForm"
+			type="atlantic.spprev.form.PersonagemForm" />
+	</form-beans>
+	<form-beans>
+		<form-bean name="claForm"
+			type="atlantic.spprev.form.ClaForm" />
+	</form-beans>
+
+	<action-mappings>
+		<!-- Inicio das ACTIONS do PERSONAGEM -->
+		<action path="/personagemform"
+			type="atlantic.spprev.action.PersonagemAction" name="personagemForm">
+			<forward name="success" path="/index.jsp" />
+		</action>
+
+		<action path="/personagemformlistar"
+			type="atlantic.spprev.action.PersonagemAction" parameter="listar"
+			name="personagemForm" input="/listarpersonagem.jsp" scope="request">
+
+			<forward name="sucess" path="/listarpersonagem.jsp" />
+		</action>
+
+		<action path="/personagemformcad"
+			type="atlantic.spprev.action.PersonagemAction" parameter="salvar"
+			name="personagemForm" input="/cadaltpersonagem.jsp" scope="request">
+			<forward name="sucess" path="/listarpersonagem.jsp" />
+		</action>
+		
+		<!-- Fim das ACTIONS do PERSONAGEM -->
+
+		<!-- Inicio das ACTIONS do CLA -->
+		<action path="/clacad" type="atlantic.spprev.action.ClaAction"
+			parameter="salvarCla" name="claForm" input="/cadastrarcla.jsp"
+			scope="request">
+			<forward name="sucess" path="/cadastrarcla.jsp" />
+		</action>
+		<!-- Fim das ACTIONS do CLA -->
+	</action-mappings>
+	
+</struts-config>
